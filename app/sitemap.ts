@@ -13,13 +13,13 @@ import { MetadataRoute } from 'next';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   // Change this to your actual base URL
-  const baseUrl = 'https://simple-webapp.vercel.app';
+  const baseUrl = 'https://simple-web-app.vercel.app';
 
   return [
     {
       url: baseUrl,
       lastModified: new Date(),
-      changeFrequency: 'yearly',
+      changeFrequency: 'weekly',
       priority: 1,
     },
     // Example of how to add another page:
