@@ -1,4 +1,4 @@
-import withPWA from 'next-pwa';
+import withPWA from '@ducanh2912/next-pwa';
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -7,7 +7,7 @@ const nextConfig = {
   // Accept all image sources
   images: {
     remotePatterns: [
-      { protocol: 'https', hostname: '**' }, // Allow all hosts
+      { protocol: 'https', hostname: '**' }, // Allow all hosts // It
     ],
   },
 };
