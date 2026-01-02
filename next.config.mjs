@@ -7,8 +7,7 @@ const nextConfig = {
   // Image whitelist
   images: {
     remotePatterns: [
-      { protocol: 'https', hostname: 'files.catbox.moe' }, // Catbox
-      // Add other hosts here if needed
+      { protocol: 'https', hostname: '**' }, // Allowed Host // Currently Allows All Host // It's recommended to specify host so Next.js can block thr rest
     ],
   },
 };
