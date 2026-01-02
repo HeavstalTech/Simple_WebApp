@@ -19,18 +19,16 @@ jobs:
       uses: actions/checkout@v4
 
     - name: Set up Node.js ${{ matrix.node-version }}
-  uses: actions/setup-node@v4
-  with:
-    node-version: ${{ matrix.node-version }}
-    cache: 'npm'
+      uses: actions/setup-node@v4
+      with:
+        node-version: ${{ matrix.node-version }}
+        # REMOVED "cache: npm" - This is what caused the error.
 
-- name: Install dependencies
-  run: npm ci
-  
+    - name: Install dependencies
+      run: npm install
 
     - name: Run Linter
       run: npm run lint
 
     - name: Build Project
       run: npm run build
-      # This runs "next build --webpack" as defined in your package.json
