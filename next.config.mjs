@@ -1,5 +1,18 @@
-import withPWAInit from "@ducanh2912/next-pwa";
+import withPWA from 'next-pwa';
 
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  reactStrictMode: true,
+
+  // Accept all image sources
+  images: {
+    remotePatterns: [
+      { protocol: 'https', hostname: '**' }, // Allow all hosts
+    ],
+  },
+};
+
+// PWA configuration
 const withPWA = withPWAInit({
   dest: "public",
   cacheOnFrontEndNav: true,
@@ -11,10 +24,3 @@ const withPWA = withPWAInit({
     disableDevLogs: true,
   },
 });
-
-/** @type {import('next').NextConfig} */
-const nextConfig = {
-  reactStrictMode: true,
-};
-
-export default withPWA(nextConfig);
