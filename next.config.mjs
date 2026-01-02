@@ -7,7 +7,7 @@ const nextConfig = {
   // Accept all image sources
   images: {
     remotePatterns: [
-      { protocol: 'https', hostname: '**' }, // Allow all hosts // It
+      { protocol: 'https', hostname: '**' }, // Allow all hosts // It recommended to specify the hosts to allow so next.js can block the rest
     ],
   },
 };
