@@ -13,7 +13,7 @@ import { MetadataRoute } from 'next';
 
 export default function robots(): MetadataRoute.Robots {
   // Change this to your actual base URL in production
-  const baseUrl = 'https://simple-web-app.vercel.app'; 
+  const baseUrl = 'https://simple-webapp-ht.vercel.app'; 
 
   return {
     rules: {
