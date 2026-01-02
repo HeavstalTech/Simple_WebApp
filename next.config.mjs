@@ -4,22 +4,24 @@ import withPWA from '@ducanh2912/next-pwa';
 const nextConfig = {
   reactStrictMode: true,
 
-  // Accept all image sources
+  // Image whitelist
   images: {
     remotePatterns: [
-      { protocol: 'https', hostname: '**' }, // Allow all hosts // It recommended to specify the hosts to allow so next.js can block the rest
+      { protocol: 'https', hostname: 'files.catbox.moe' }, // Catbox
+      // Add other hosts here if needed
     ],
   },
 };
 
 // PWA configuration
-const withPWA = withPWAInit({
-  dest: "public",
+export default withPWA({
+  ...nextConfig,
+  dest: 'public',                       // Service worker output
   cacheOnFrontEndNav: true,
   aggressiveFrontEndNavCaching: true,
   reloadOnOnline: true,
   swcMinify: true,
-  disable: process.env.NODE_ENV === "development", // Disable PWA in dev mode
+  disable: process.env.NODE_ENV === 'development', // Disable PWA in dev
   workboxOptions: {
     disableDevLogs: true,
   },
