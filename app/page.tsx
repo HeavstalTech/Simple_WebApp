@@ -13,72 +13,207 @@
 */
 
 import Link from "next/link";
+import CodeBlock from "@/components/CodeBlock";
+import { 
+  Rocket, 
+  Smartphone, 
+  Search, 
+  Layers, 
+  GitBranch, 
+  Github, 
+  BookOpen 
+} from "lucide-react";
 
 export default function Home() {
   return (
-    <div className="flex flex-col items-center justify-center min-h-[80vh] p-8 pb-20 sm:p-20 font-[family-name:var(--font-geist-sans)]">
+    <div className="min-h-screen font-[family-name:var(--font-geist-sans)]">
       
-      {/* Hero Section */}
-      <section className="flex flex-col gap-6 items-center text-center max-w-2xl">
-        <div className="bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 px-3 py-1 rounded-full text-sm font-medium">
-          Open Source v1.0
+      {/* 1. HERO SECTION (Current Stuff) */}
+      <section id="intro" className="relative flex flex-col items-center justify-center pt-20 pb-16 px-6 sm:pt-32 text-center">
+        <div className="bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 px-4 py-1.5 rounded-full text-sm font-semibold mb-6 animate-fade-in">
+          v1.1.0 • Open Source PWA Boilerplate
         </div>
         
-        <h1 className="text-4xl font-extrabold tracking-tight sm:text-6xl text-foreground">
-          Simple <span className="text-blue-600 dark:text-blue-500">WebApp</span>
+        <h1 className="text-5xl font-extrabold tracking-tight sm:text-7xl mb-6 max-w-4xl bg-clip-text text-transparent bg-gradient-to-r from-gray-900 to-gray-600 dark:from-white dark:to-gray-400">
+          Build Your Next.js PWA <br className="hidden sm:block" />
+          <span className="text-blue-600 dark:text-blue-500">In Minutes, Not Days.</span>
         </h1>
         
-        <p className="text-lg text-gray-600 dark:text-gray-400 leading-relaxed">
-          A production-ready template by <strong>Heavstal Tech</strong>. 
-          Fork this repository to jumpstart your Next.js project with built-in 
-          PWA support, SEO optimization, and a scalable folder structure.
+        <p className="text-xl text-gray-600 dark:text-gray-300 mb-10 max-w-2xl leading-relaxed">
+          The ultimate boilerplate featuring Next.js 16, Tailwind CSS, 
+          Automated SEO, and native Offline PWA support. Stop configuring, start coding.
         </p>
 
-        {/* Action Buttons */}
-        <div className="flex flex-row gap-4 mt-4">
+        <div className="flex flex-col sm:flex-row gap-4 w-full justify-center">
           <a
-            className="rounded-full bg-foreground text-background px-6 py-3 font-semibold transition hover:opacity-90 flex items-center gap-2"
             href="https://github.com/HeavstalTech/Simple_WebApp"
             target="_blank"
             rel="noopener noreferrer"
+            className="flex items-center justify-center gap-2 bg-foreground text-background px-8 py-4 rounded-full font-bold text-lg hover:opacity-90 transition-all shadow-lg hover:shadow-xl"
           >
-            <svg height="20" width="20" viewBox="0 0 16 16" fill="currentColor">
-              <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/>
-            </svg>
+            <Github size={20} />
             Star on GitHub
           </a>
-          
           <Link
-            href="/api/health"
-            className="rounded-full border border-gray-300 dark:border-gray-700 px-6 py-3 font-medium hover:bg-gray-100 dark:hover:bg-gray-800 transition"
+            href="#installation"
+            className="flex items-center justify-center gap-2 bg-gray-200 dark:bg-gray-800 text-foreground px-8 py-4 rounded-full font-bold text-lg hover:bg-gray-300 dark:hover:bg-gray-700 transition-all"
           >
-            Test API Route
+            <Rocket size={20} />
+            Get Started
           </Link>
         </div>
       </section>
 
-      {/* Features Grid */}
-      <section className="grid grid-cols-1 sm:grid-cols-3 gap-6 mt-16 w-full max-w-4xl text-left">
-        <div className="p-6 border border-gray-200 dark:border-gray-800 rounded-xl bg-white dark:bg-black/20">
-          <h3 className="font-bold text-xl mb-2">PWA Ready</h3>
-          <p className="text-sm text-gray-500">
-            Installable on mobile and desktop. Includes manifest.json, icons setup, and service worker configuration.
-          </p>
+      {/* STICKY NAV BAR */}
+      <div className="sticky top-0 z-50 w-full bg-white/80 dark:bg-black/80 backdrop-blur-md border-b border-gray-200 dark:border-gray-800">
+        <div className="max-w-5xl mx-auto px-4 overflow-x-auto no-scrollbar">
+          <nav className="flex items-center gap-1 sm:gap-6 py-4 min-w-max">
+            <NavLink href="#intro" label="Overview" />
+            <NavLink href="#features" label="Features" />
+            <NavLink href="#installation" label="Installation" />
+            <NavLink href="#structure" label="Structure" />
+            <NavLink href="#contributing" label="Contributing" />
+          </nav>
         </div>
-        <div className="p-6 border border-gray-200 dark:border-gray-800 rounded-xl bg-white dark:bg-black/20">
-          <h3 className="font-bold text-xl mb-2">SEO Optimized</h3>
-          <p className="text-sm text-gray-500">
-            Pre-configured with <code>next-sitemap</code>, robots.txt, and JSON-LD structured data for better indexing.
-          </p>
-        </div>
-        <div className="p-6 border border-gray-200 dark:border-gray-800 rounded-xl bg-white dark:bg-black/20">
-          <h3 className="font-bold text-xl mb-2">Scalable</h3>
-          <p className="text-sm text-gray-500">
-            Organized folder structure with dedicated <code>components</code>, <code>api</code>, and <code>lib</code> directories.
-          </p>
-        </div>
-      </section>
+      </div>
 
+      <div className="max-w-4xl mx-auto px-6 py-16 space-y-24">
+        
+        {/* 2. README CONTENT */}
+        <section id="features" className="scroll-mt-24">
+          <h2 className="text-3xl font-bold mb-8 flex items-center gap-3">
+            <Layers className="text-blue-500" />
+            Everything You Need
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <FeatureCard 
+              icon={<Smartphone className="text-purple-500" />}
+              title="PWA Ready"
+              desc="Installable on mobile/desktop. Works offline with service workers powered by @ducanh2912/next-pwa."
+            />
+            <FeatureCard 
+              icon={<Search className="text-green-500" />}
+              title="SEO Automated"
+              desc="Pre-configured next-sitemap, robots.txt, and JSON-LD Structured Data for maximum Google visibility."
+            />
+            <FeatureCard 
+              icon={<Rocket className="text-red-500" />}
+              title="Modern Stack"
+              desc="Built on Next.js 16 (App Router), React 18+, TypeScript 5, and Tailwind CSS."
+            />
+            <FeatureCard 
+              icon={<BookOpen className="text-yellow-500" />}
+              title="Developer Experience"
+              desc="ESLint, Prettier, and GitHub Actions CI/CD pipeline pre-configured for quality control."
+            />
+          </div>
+        </section>
+
+        <section id="installation" className="scroll-mt-24">
+          <h2 className="text-3xl font-bold mb-6 flex items-center gap-3">
+            <Rocket className="text-blue-500" />
+            Installation
+          </h2>
+          <p className="text-gray-600 dark:text-gray-400 mb-4">
+            Get your app running in less than 2 minutes.
+          </p>
+          
+          <div className="space-y-6">
+            <div>
+              <h3 className="text-lg font-semibold mb-2">1. Clone the repository</h3>
+              <CodeBlock language="bash" code="git clone https://github.com/HeavstalTech/Simple_WebApp.git" />
+            </div>
+            
+            <div>
+              <h3 className="text-lg font-semibold mb-2">2. Install dependencies</h3>
+              <CodeBlock language="bash" code="npm install" />
+            </div>
+
+            <div>
+              <h3 className="text-lg font-semibold mb-2">3. Run development server</h3>
+              <CodeBlock language="bash" code="npm run dev" />
+            </div>
+          </div>
+        </section>
+
+        <section id="structure" className="scroll-mt-24">
+          <h2 className="text-3xl font-bold mb-6 flex items-center gap-3">
+            <Layers className="text-blue-500" />
+            Project Structure
+          </h2>
+          <CodeBlock language="text" code={`├── app/                # Next.js App Router
+│   ├── api/            # Backend API routes
+│   ├── robots.ts       # SEO: Robots.txt
+│   └── sitemap.ts      # SEO: Sitemap
+├── components/         # Reusable UI components
+├── public/             # Static assets (PWA icons)
+├── next.config.mjs     # PWA Configuration
+└── tailwind.config.ts  # Styling`} />
+        </section>
+
+        {/* 3. CONTRIBUTING CONTENT */}
+        <section id="contributing" className="scroll-mt-24 pb-20">
+          <div className="bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-2xl p-8">
+            <h2 className="text-3xl font-bold mb-6 flex items-center gap-3">
+              <GitBranch className="text-blue-500" />
+              Become a Contributor
+            </h2>
+            <p className="text-gray-600 dark:text-gray-400 mb-6">
+              This project is open source and we love contributions. Here is how you can help:
+            </p>
+
+            <ol className="list-decimal list-inside space-y-4 text-gray-700 dark:text-gray-300 mb-8">
+              <li>Fork the repository on GitHub.</li>
+              <li>Clone your fork locally.</li>
+              <li>Create a new branch for your feature.</li>
+              <li>Make your changes and commit them.</li>
+              <li>Push to your fork and open a Pull Request.</li>
+            </ol>
+
+            <CodeBlock language="bash" code={`# Example workflow
+git checkout -b feature/amazing-feature
+git commit -m "Add amazing feature"
+git push origin feature/amazing-feature`} />
+
+            <div className="mt-8 flex gap-4">
+              <a 
+                href="https://github.com/HeavstalTech/Simple_WebApp/blob/main/CONTRIBUTING.md" 
+                target="_blank"
+                className="text-blue-600 hover:underline font-semibold"
+              >
+                Read full guidelines &rarr;
+              </a>
+            </div>
+          </div>
+        </section>
+
+      </div>
+    </div>
+  );
+}
+
+// Sub-components for cleaner code
+function NavLink({ href, label }: { href: string; label: string }) {
+  return (
+    <a 
+      href={href} 
+      className="px-4 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900/20 rounded-lg transition-colors whitespace-nowrap"
+    >
+      {label}
+    </a>
+  );
+}
+
+function FeatureCard({ icon, title, desc }: { icon: any; title: string; desc: string }) {
+  return (
+    <div className="p-6 rounded-xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-black/20 hover:border-blue-500/50 transition-colors">
+      <div className="mb-4 p-3 bg-gray-100 dark:bg-gray-800 rounded-lg w-fit">
+        {icon}
+      </div>
+      <h3 className="font-bold text-xl mb-2">{title}</h3>
+      <p className="text-sm text-gray-500 dark:text-gray-400 leading-relaxed">
+        {desc}
+      </p>
     </div>
   );
 }
