@@ -1,6 +1,6 @@
 # Simple WebApp (PWA)
 
-![App Logo](./public/icon/android-chrome-192x192.png)
+![App Logo](./public/icon/android-chrome-512x512.png)
 
 ![License](https://img.shields.io/github/license/HeavstalTech/Simple_WebApp)
 ![Next.js](https://img.shields.io/badge/Next.js-16-black)
